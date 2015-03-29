@@ -5,7 +5,10 @@
 list 
 make_empty_list()
 {
-    return malloc(sizeof(struct node));
+	list l = malloc(sizeof(struct node));
+	l->e = 0;
+	l->next = NULL;
+    return l;
 }
 
 int 
@@ -47,6 +50,7 @@ insert(element e, list l)
 	if (p->next != NULL)
 	{
 		p->next->e = e;
+		p->next->next = NULL;
 		return 0;
 	}
 
